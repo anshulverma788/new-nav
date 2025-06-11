@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    header {
+        background-color: aqua;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+
+    .div-1 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ol {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .button-main {
+        height: 30px;
+    }
+
+    #icon {
+        display: none;
+        font-size: 30px;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+    li {
+        cursor: pointer;
+    }
+    li:hover {
+        color: rgb(112, 19, 242);
+    }
+    .mobile-menu{
+        display: none;
+    }
+
+    @media(max-width: 700px) {
+        .div-1 {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #icon {
+            display: block;
+            font-size: 20px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        ol {
+            display: none;
+        }
+
+        .submit-main {
+            display: none;
+        }
+
+
+        .mobile-menu {
+            list-style: none;
+            position: absolute;
+            right: 2rem;
+            top: 60px;
+            width: 200px;
+            background-color: rgba(119, 255, 0, 0.271);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .mobile-menu li {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .submit-dropdown {
+            width: 100%;
+            height: 30px;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-dropdown:hover {
+            background-color: #37ca46;
+        }
+
+        .mobile-menu li {
+            padding: 10px;
+        }
+    }
+   
+</style>
+
+<body>
+    <header>
+        <div class="div-1">
+            <h1>Anshul </h1>
+            <ol>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Services</li>
+            </ol>
+            <button class="submit-main">Submit</button>
+            <i id="icon" class="fa-solid fa-bars"></i>
+        </div>
+        <div class="mobile-menu">
+
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Services</li>
+           <li> <button class="submit-dropdown">Submit</button></li>
+        </div>
+    </header>
+
+    <script>
+        const icon = document.getElementById('icon');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const submitButton = document.querySelector('.submit-main');
+
+        icon.onclick = function () {
+            mobileMenu.classList.toggle('open');
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.style.display = 'block';
+                icon.classList.add('fa-xmark');
+                icon.classList.remove('fa-bars');
+            } else {
+                mobileMenu.style.display = 'none';
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            }
+           
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+@media(min-width: 300px) and (max-width: 600px) {
+    header {
+        width: 200%;
+    }
+}
+@media(max-width: 700px){
+    #icon{
+        display:block;
+        font-size: 20px;
+    }
+}
